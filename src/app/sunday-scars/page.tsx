@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { JsonLd, podcastSchema, breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Sunday Scars Podcast",
@@ -20,6 +22,11 @@ const STEPS = [
 export default function SundayScarsPage() {
   return (
     <>
+      <JsonLd data={podcastSchema()} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: SITE_URL },
+        { name: "Sunday Scars", url: `${SITE_URL}/sunday-scars` },
+      ])} />
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />

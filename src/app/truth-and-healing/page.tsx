@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { ARTICLES, ALL_TAGS } from "@/lib/articles";
+import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Truth & Healing — Articles on Spiritual Abuse, Recovery & Faith",
@@ -9,95 +12,14 @@ export const metadata: Metadata = {
     "Honest conversations about church hurt, spiritual abuse, healing, and rebuilding faith. Written by Servant Zero.",
 };
 
-// Articles — written by Servant Zero, targeting real search gaps
-const ARTICLES = [
-  {
-    slug: "what-is-spiritual-abuse",
-    title: "What Is Spiritual Abuse? The Signs Nobody Warned You About",
-    excerpt:
-      "Nobody sat me down and said, 'Hey — what's happening to you has a name.' I had to figure it out on my own, years after the damage was done. Spiritual abuse doesn't leave bruises. It leaves you questioning your own sanity, your own faith, and whether God was ever real in the first place. Let me show you what I wish someone had shown me.",
-    date: "2026-03-15",
-    readTime: "8 min",
-    tags: ["spiritual abuse", "awareness"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "leaving-church-vs-leaving-god",
-    title: "I Left My Church — I Didn't Leave God",
-    excerpt:
-      "They told me that walking out those doors was the same as walking away from God. That the covering was gone. That I was in rebellion. I believed it for a while. Then I found God on the outside — and He was closer than He'd ever been inside that building. Leaving a toxic church isn't backsliding. It might be the most obedient thing you ever do.",
-    date: "2026-03-10",
-    readTime: "7 min",
-    tags: ["church hurt", "healing"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "forgiving-your-pastor",
-    title: "How I Forgave My Pastor (And Why It Wasn't For Him)",
-    excerpt:
-      "I carried that weight for years. The anger. The betrayal. The way I'd flinch every time someone mentioned church. Forgiving my pastor wasn't about excusing what he did — it was about refusing to let him live rent-free in my head for the rest of my life. This is what that process actually looked like, not the churchy version — the real one.",
-    date: "2026-03-05",
-    readTime: "9 min",
-    tags: ["forgiveness", "healing"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "when-obedience-becomes-control",
-    title: "When 'Obey Your Pastor' Becomes a Weapon",
-    excerpt:
-      "There's a verse for everything when you're being controlled. 'Touch not mine anointed.' 'Obey them that have the rule over you.' 'Do not forsake the assembling.' I heard them all, weaponized and twisted until I couldn't tell the difference between submission to God and submission to a man who was using God's name as a leash.",
-    date: "2026-02-28",
-    readTime: "10 min",
-    tags: ["spiritual abuse", "control"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "rebuilding-faith-after-church-hurt",
-    title: "How to Rebuild Your Faith After Church Hurt",
-    excerpt:
-      "You didn't lose your faith. Someone put it in a blender. The God you believed in before the hurt is still the same God. But the lens you were looking through got shattered, and now you have to figure out what was real and what was manufactured. I'm still rebuilding. Here's what I've learned so far.",
-    date: "2026-02-20",
-    readTime: "8 min",
-    tags: ["healing", "faith"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "music-as-medicine",
-    title: "Why I Make Music About Church Hurt (And Why It Heals)",
-    excerpt:
-      "I didn't start making music because I wanted to be an artist. I started because I was drowning and needed a lifeboat. Every lyric is a page out of my journal. Every beat is a prayer I couldn't pray out loud. If you've ever put on headphones and felt like a song understood you better than any sermon — that's why I do this.",
-    date: "2026-02-15",
-    readTime: "6 min",
-    tags: ["music", "healing"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "signs-you-were-in-a-controlling-church",
-    title: "7 Signs You Were in a Controlling Church",
-    excerpt:
-      "You couldn't question leadership. Leaving was treated like a death sentence. Loyalty to the pastor was confused with loyalty to God. Financial pressure disguised as faith. Isolation from friends and family outside the church. If any of this sounds familiar, it's not because you're being dramatic. Here's how to tell if what you experienced was control.",
-    date: "2026-02-10",
-    readTime: "7 min",
-    tags: ["spiritual abuse", "awareness", "control"],
-    image: "/images/servant-zero-logo.png",
-  },
-  {
-    slug: "ptsd-from-church",
-    title: "Can You Get PTSD From Church? (Yes — Here's What It Looks Like)",
-    excerpt:
-      "I didn't know what was wrong with me. Panic attacks on Sunday mornings. Heart racing when I heard worship music. Nightmares about sermons. I thought I was losing it. Then a counselor told me what I was experiencing had a name — and that I wasn't alone. If church left you with more scars than peace, this one's for you.",
-    date: "2026-02-05",
-    readTime: "9 min",
-    tags: ["church hurt", "healing", "awareness"],
-    image: "/images/servant-zero-logo.png",
-  },
-];
-
-const ALL_TAGS = Array.from(new Set(ARTICLES.flatMap((a) => a.tags)));
-
 export default function TruthAndHealingPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: SITE_URL },
+        { name: "Truth & Healing", url: `${SITE_URL}/truth-and-healing` },
+      ])} />
+
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />

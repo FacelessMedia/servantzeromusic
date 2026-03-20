@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { JsonLd, organizationSchema, websiteSchema } from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,6 +52,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn(inter.variable, playfair.variable)}>
+      <head>
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
+      </head>
       <body className="antialiased min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pt-16">{children}</main>

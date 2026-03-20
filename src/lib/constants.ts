@@ -27,4 +27,7 @@ export const SOCIAL_LINKS = {
 
 export const MERCH_URL = "https://servantzero.shop";
 
+// Placeholder — will be replaced with actual Stripe donate link
+export const DONATE_URL = "#donate";
+
 export const AI_DISCLAIMER = `The music of Servant Zero is created using AI tools — but there is a real soul behind every word. Every lyric, concept, and song is born from lived experience, real pain, and genuine faith. This is not random content. There is a person with clear intention behind everything Servant Zero creates — the music, the podcast, the book, the message. The voice may be artificial, but the heart is not.`;

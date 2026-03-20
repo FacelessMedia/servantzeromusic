@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JsonLd, bookSchema, breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Church Hurt, Now What? — The Book",
@@ -17,6 +19,11 @@ const CHAPTERS = [
 export default function BookPage() {
   return (
     <>
+      <JsonLd data={bookSchema()} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: SITE_URL },
+        { name: "The Book", url: `${SITE_URL}/book` },
+      ])} />
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />

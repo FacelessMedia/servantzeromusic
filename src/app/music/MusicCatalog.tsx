@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Play, ArrowUpDown } from "lucide-react";
@@ -43,9 +44,18 @@ const PLATFORM_STATS = [
 ];
 
 export function MusicCatalog() {
+  const searchParams = useSearchParams();
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
   const [sortMode, setSortMode] = useState<SortMode>("newest");
   const [nowPlaying, setNowPlaying] = useState<typeof SONGS[number] | null>(null);
+
+  // Read ?tag= from URL on mount and activate that filter
+  useEffect(() => {
+    const tagParam = searchParams.get("tag");
+    if (tagParam && ALL_TAGS.includes(tagParam)) {
+      setActiveTags(new Set([tagParam]));
+    }
+  }, [searchParams]);
 
   const toggleTag = (tag: string) => {
     setActiveTags((prev) => {

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { YouTubeIcon } from "@/components/icons/BrandIcons";
+import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Boombap Bible — Scripture You Can Feel",
@@ -18,6 +20,10 @@ const REASONS = [
 export default function BoombapBiblePage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: SITE_URL },
+        { name: "Boombap Bible", url: `${SITE_URL}/boombap-bible` },
+      ])} />
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />

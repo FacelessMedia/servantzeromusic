@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ShoppingCart, ExternalLink, Play } from "lucide-react";
+import { JsonLd, songSchema, breadcrumbSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 import {
   SpotifyIcon,
   YouTubeIcon,
@@ -204,6 +206,13 @@ export default function SongPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <JsonLd data={songSchema(song)} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: SITE_URL },
+        { name: "Music", url: `${SITE_URL}/music` },
+        { name: song.title, url: `${SITE_URL}/music/${song.slug}` },
+      ])} />
+
       {/* Back nav */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Link

@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ExternalLink } from "lucide-react";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { Menu, X, ExternalLink, Heart } from "lucide-react";
+import { NAV_LINKS, SITE_NAME, DONATE_URL } from "@/lib/constants";
 
 const ROW_1 = NAV_LINKS.filter((l) =>
   ["Music", "Videos", "My Story", "About"].includes(l.label)
@@ -50,6 +50,13 @@ export function Header() {
 
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
+            <a
+              href={DONATE_URL}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 border border-primary/40 text-primary text-sm font-semibold rounded-md hover:bg-primary/10 transition-colors"
+            >
+              <Heart className="w-3.5 h-3.5" />
+              Donate
+            </a>
             <Link
               href="/music"
               className="hidden sm:inline-flex items-center px-4 py-1.5 bg-primary text-primary-foreground text-sm font-semibold rounded-md hover:bg-crimson-500 transition-colors"
@@ -102,10 +109,18 @@ export function Header() {
                 {"external" in link && link.external && <ExternalLink className="w-4 h-4 text-muted-foreground" />}
               </Link>
             ))}
+            <a
+              href={DONATE_URL}
+              onClick={() => setMobileOpen(false)}
+              className="mt-6 flex items-center justify-center gap-2 px-6 py-4 border border-primary/40 text-primary text-lg font-bold rounded-lg hover:bg-primary/10 transition-colors"
+            >
+              <Heart className="w-5 h-5" />
+              Donate
+            </a>
             <Link
               href="/music"
               onClick={() => setMobileOpen(false)}
-              className="mt-6 flex items-center justify-center px-6 py-4 bg-primary text-primary-foreground text-lg font-bold rounded-lg hover:bg-crimson-500 transition-colors"
+              className="mt-2 flex items-center justify-center px-6 py-4 bg-primary text-primary-foreground text-lg font-bold rounded-lg hover:bg-crimson-500 transition-colors"
             >
               Listen Now
             </Link>

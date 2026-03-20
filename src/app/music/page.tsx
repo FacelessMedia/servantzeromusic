@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { MusicCatalog } from "./MusicCatalog";
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function MusicPage() {
-  return <MusicCatalog />;
+  return (
+    <Suspense>
+      <MusicCatalog />
+    </Suspense>
+  );
 }
