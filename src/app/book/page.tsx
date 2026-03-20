@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { JsonLd, bookSchema, breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
+import { EmailSignup } from "@/components/EmailSignup";
 
 export const metadata: Metadata = {
   title: "Church Hurt, Now What? — The Book",
@@ -140,19 +141,12 @@ export default function BookPage() {
           <p className="text-muted-foreground mb-8">
             Get notified when the book is ready.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-card border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-crimson-500 transition-colors">
-              Join
-            </button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            Be the first to know when it&apos;s available. No spam, ever.
-          </p>
+          <EmailSignup
+            source="book-launch-list"
+            buttonText="Join"
+            successMessage="You're on the list! We'll let you know when the book drops."
+            footnote="Be the first to know when it's available. No spam, ever."
+          />
         </div>
       </section>
     </>

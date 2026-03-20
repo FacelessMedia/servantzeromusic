@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { JsonLd, podcastSchema, breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
+import { EmailSignup } from "@/components/EmailSignup";
 
 export const metadata: Metadata = {
   title: "Sunday Scars Podcast",
@@ -141,19 +142,12 @@ export default function SundayScarsPage() {
           <p className="text-muted-foreground mb-8">
             Get notified when Sunday Scars launches in Spring 2026.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-card border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-crimson-500 transition-colors">
-              Join
-            </button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            No spam. Just launch updates.
-          </p>
+          <EmailSignup
+            source="sunday-scars-launch-list"
+            buttonText="Join"
+            successMessage="You're on the list! We'll notify you when Sunday Scars launches."
+            footnote="No spam. Just launch updates."
+          />
         </div>
       </section>
     </>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { YouTubeIcon } from "@/components/icons/BrandIcons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
+import { EmailSignup } from "@/components/EmailSignup";
 
 export const metadata: Metadata = {
   title: "Boombap Bible — Scripture You Can Feel",
@@ -217,19 +218,12 @@ export default function BoombapBiblePage() {
           <p className="text-muted-foreground mb-8">
             Get notified when Boombap Bible launches in Spring 2026.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-card border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-crimson-500 transition-colors">
-              Notify Me
-            </button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            No spam. Just Scripture.
-          </p>
+          <EmailSignup
+            source="boombap-bible-launch-list"
+            buttonText="Notify Me"
+            successMessage="You're on the list! We'll let you know when Boombap Bible drops."
+            footnote="No spam. Just Scripture."
+          />
         </div>
       </section>
     </>

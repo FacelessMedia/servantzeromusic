@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { Music, Play, Mic, BookOpen, ScrollText, ArrowRight, Pen } from "lucide-react";
+import { EmailSignup } from "@/components/EmailSignup";
 import {
   SpotifyIcon,
   YouTubeIcon,
@@ -326,19 +327,12 @@ export default function Home() {
             Get notified about new music, podcast episodes, and updates from
             Servant Zero. No spam, ever.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-card border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-crimson-500 transition-colors">
-              Join
-            </button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            No spam. Just updates from the mission.
-          </p>
+          <EmailSignup
+            source="homepage-newsletter"
+            buttonText="Join"
+            successMessage="You're in! Watch your inbox for updates from the mission."
+            footnote="No spam. Just updates from the mission."
+          />
         </div>
       </section>
     </>

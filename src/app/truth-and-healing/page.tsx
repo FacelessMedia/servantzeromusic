@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { ARTICLES, ALL_TAGS } from "@/lib/articles";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
+import { EmailSignup } from "@/components/EmailSignup";
 
 export const metadata: Metadata = {
   title: "Truth & Healing — Articles on Spiritual Abuse, Recovery & Faith",
@@ -116,19 +117,12 @@ export default function TruthAndHealingPage() {
             Join the mailing list for new articles on healing, faith, and
             finding your way forward after church hurt.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-card border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-crimson-500 transition-colors">
-              Subscribe
-            </button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            No spam. Just truth.
-          </p>
+          <EmailSignup
+            source="truth-and-healing-newsletter"
+            buttonText="Subscribe"
+            successMessage="You're in! New articles will hit your inbox."
+            footnote="No spam. Just truth."
+          />
         </div>
       </section>
     </>
