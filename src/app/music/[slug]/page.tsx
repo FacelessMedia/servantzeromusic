@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ShoppingCart, ExternalLink, Play, Music, Video, FileText, BookOpen } from "lucide-react";
 import { SongSidebar } from "@/components/SongSidebar";
+import { SongShareButtons } from "@/components/SongShareButtons";
 import { JsonLd, songSchema, breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
 import {
@@ -291,7 +292,7 @@ export default function SongPage({ params }: { params: { slug: string } }) {
 
               {/* Tags */}
               {song.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {song.tags.map((tag) => (
                     <Link
                       key={tag}
@@ -303,6 +304,9 @@ export default function SongPage({ params }: { params: { slug: string } }) {
                   ))}
                 </div>
               )}
+
+              {/* Social Share */}
+              <SongShareButtons songTitle={song.title} songSlug={song.slug} />
 
               {/* Streaming Links */}
               <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">

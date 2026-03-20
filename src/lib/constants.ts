@@ -14,6 +14,8 @@ export const NAV_LINKS = [
   { label: "Shop", href: "https://servantzero.shop", external: true },
 ] as const;
 
+export const YOUTUBE_CHANNEL_ID = "UC7VW5e60RGJyG_KsroL5oQA";
+
 export const SOCIAL_LINKS = {
   youtube: "https://youtube.com/@servantzeromusic",
   spotify: "https://open.spotify.com/artist/4Ue2l7C5E72QFCkegCjMwY",

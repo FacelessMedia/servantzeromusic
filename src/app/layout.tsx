@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, organizationSchema, websiteSchema } from "@/lib/schema";
 
 const inter = Inter({
@@ -62,7 +63,10 @@ export default function RootLayout({
           🚧 This site is under construction — expect changes over the next couple weeks! 🚧
         </div>
         <Header />
-        <main className="flex-1 pt-[calc(4rem+2rem)]">{children}</main>
+        <main className="flex-1 pt-[calc(4rem+2rem)]">
+          <Breadcrumbs />
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

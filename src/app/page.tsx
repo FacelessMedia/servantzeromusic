@@ -92,15 +92,15 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          {/* Hero Image — Servant Zero logo, large and dramatic */}
+          {/* Hero Image — Servant Zero standing */}
           <div className="relative inline-block mb-10">
-            <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl scale-110 animate-pulse" />
-            <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-primary/10 border-2 border-primary/40 overflow-hidden shadow-2xl shadow-primary/20">
+            <div className="absolute inset-0 bg-primary/10 blur-3xl scale-110 rounded-2xl" />
+            <div className="relative w-64 h-44 sm:w-80 sm:h-56 md:w-[480px] md:h-[320px] rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10">
               <Image
-                src="/images/servant-zero-logo.png"
+                src="/images/servant-zero-hero.webp"
                 alt="Servant Zero"
-                width={208}
-                height={208}
+                width={1200}
+                height={800}
                 className="w-full h-full object-cover"
                 priority
               />
