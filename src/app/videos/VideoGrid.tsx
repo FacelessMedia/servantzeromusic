@@ -5,8 +5,9 @@ import Image from "next/image";
 import { ArrowUpDown } from "lucide-react";
 import { YouTubeIcon } from "@/components/icons/BrandIcons";
 
-// Video data — no shorts (all >60s).
-// Duration in seconds. Videos under 61s are filtered out.
+// Video data — confirmed Servant Zero channel videos ONLY.
+// Full catalog (~173 videos) will be added as user provides screenshots/verification.
+// Duration in seconds. Videos under 61s are filtered out (no shorts).
 const RAW_VIDEOS = [
   { id: "sR665fcOy4E", title: "Racism Is Racist", duration: 198, date: "2025-03-15" },
   { id: "yFsF5zbg2sc", title: "I'm Haunted", duration: 245, date: "2025-03-10" },
@@ -16,14 +17,6 @@ const RAW_VIDEOS = [
   { id: "hotAqi0cldQ", title: "Desperation Like Hers", duration: 240, date: "2025-02-15" },
   { id: "zq-_U4nGGWw", title: "Dear Mom and Dad", duration: 265, date: "2025-02-10" },
   { id: "_iIPILHykOY", title: "Babylon Burns", duration: 195, date: "2025-02-05" },
-  { id: "dQw4w9WgXcQ", title: "Chains Don't Define Me", duration: 213, date: "2025-01-30" },
-  { id: "9bZkp7q19f0", title: "Wrestling With God", duration: 178, date: "2025-01-25" },
-  { id: "kJQP7kiw5Fk", title: "The Weight I Carry", duration: 232, date: "2025-01-20" },
-  { id: "JGwWNGJdvx8", title: "Broken Altars", duration: 200, date: "2025-01-15" },
-  { id: "RgKAFK5djSk", title: "Still Standing", duration: 256, date: "2025-01-10" },
-  { id: "OPf0YbXqDm0", title: "Let Me Go", duration: 190, date: "2025-01-05" },
-  { id: "hT_nvWreIhg", title: "Not Your Puppet", duration: 220, date: "2024-12-30" },
-  { id: "CevxZvSJLk8", title: "Grace Over Guilt", duration: 245, date: "2024-12-25" },
 ].filter((v) => v.duration > 60);
 
 const VIDEOS_PER_PAGE = 6;
@@ -172,8 +165,17 @@ export function VideoGrid() {
         {!hasMore && (
           <div className="text-center py-12">
             <p className="text-sm text-muted-foreground">
-              You&apos;ve seen all the full-length videos. More coming soon.
+              More videos loading soon — Servant Zero has 173+ videos on YouTube.
             </p>
+            <a
+              href={YT_CHANNEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 text-red-500 hover:text-red-400 font-semibold text-sm transition-colors"
+            >
+              <YouTubeIcon className="w-4 h-4" />
+              See all videos on YouTube
+            </a>
           </div>
         )}
       </div>

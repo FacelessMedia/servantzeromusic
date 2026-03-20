@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ExternalLink, Heart } from "lucide-react";
-import { NAV_LINKS, SITE_NAME, DONATE_URL } from "@/lib/constants";
+import { NAV_LINKS, DONATE_URL } from "@/lib/constants";
 
 const ROW_1 = NAV_LINKS.filter((l) =>
   ["Music", "Videos", "My Story", "About"].includes(l.label)
@@ -17,22 +17,19 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-8 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top bar: logo + row 1 + CTA */}
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center group">
             <Image
               src="/images/servant-zero-logo.png"
               alt="Servant Zero"
-              width={28}
-              height={28}
-              className="rounded-full"
+              width={40}
+              height={40}
+              className="rounded-full transition-transform group-hover:scale-105"
             />
-            <span className="font-heading text-base font-bold tracking-wide text-foreground group-hover:text-primary transition-colors">
-              {SITE_NAME}
-            </span>
           </Link>
 
           {/* Desktop Nav Row 1 */}
@@ -94,7 +91,7 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-background/98 backdrop-blur-lg z-40">
+        <div className="lg:hidden fixed inset-0 top-[calc(2rem+3.5rem)] bg-background/98 backdrop-blur-lg z-40">
           <nav className="flex flex-col px-6 py-8 gap-2">
             {NAV_LINKS.map((link) => (
               <Link

@@ -195,11 +195,10 @@ export function MusicCatalog() {
               className="group relative flex flex-col bg-card border border-border rounded-xl hover:border-primary/50 transition-all overflow-hidden"
             >
               <div className="flex items-center gap-4 p-5">
-                {/* Cover art — clicking plays the song inline */}
-                <button
-                  onClick={() => setNowPlaying(nowPlaying?.slug === song.slug ? null : song)}
-                  className="w-14 h-14 rounded-lg overflow-hidden bg-primary/10 flex-shrink-0 relative cursor-pointer"
-                  aria-label={`Play ${song.title}`}
+                {/* Cover art — thumbnail, links to song page */}
+                <Link
+                  href={`/music/${song.slug}`}
+                  className="w-14 h-14 rounded-lg overflow-hidden bg-primary/10 flex-shrink-0"
                 >
                   <Image
                     src={song.cover}
@@ -208,20 +207,7 @@ export function MusicCatalog() {
                     height={56}
                     className="w-full h-full object-cover"
                   />
-                  <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity ${
-                    nowPlaying?.slug === song.slug ? "opacity-100 bg-primary/60" : "opacity-0 group-hover:opacity-100"
-                  }`}>
-                    {nowPlaying?.slug === song.slug ? (
-                      <div className="flex gap-0.5">
-                        <span className="w-1 h-4 bg-white rounded-full animate-pulse" />
-                        <span className="w-1 h-3 bg-white rounded-full animate-pulse delay-75" />
-                        <span className="w-1 h-5 bg-white rounded-full animate-pulse delay-150" />
-                      </div>
-                    ) : (
-                      <Play className="w-5 h-5 text-white fill-white" />
-                    )}
-                  </div>
-                </button>
+                </Link>
                 {/* Title — clicking goes to full song page */}
                 <div className="flex-1 min-w-0">
                   <Link
@@ -236,6 +222,26 @@ export function MusicCatalog() {
                     <span>{song.duration}</span>
                   </div>
                 </div>
+                {/* Play button — right side */}
+                <button
+                  onClick={() => setNowPlaying(nowPlaying?.slug === song.slug ? null : song)}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                    nowPlaying?.slug === song.slug
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary"
+                  }`}
+                  aria-label={nowPlaying?.slug === song.slug ? `Stop ${song.title}` : `Play ${song.title}`}
+                >
+                  {nowPlaying?.slug === song.slug ? (
+                    <div className="flex gap-0.5">
+                      <span className="w-1 h-3 bg-current rounded-full animate-pulse" />
+                      <span className="w-1 h-2 bg-current rounded-full animate-pulse delay-75" />
+                      <span className="w-1 h-4 bg-current rounded-full animate-pulse delay-150" />
+                    </div>
+                  ) : (
+                    <Play className="w-4 h-4 fill-current" />
+                  )}
+                </button>
               </div>
               <div className="px-5 pb-4 flex flex-wrap gap-1.5">
                 {song.tags.map((tag) => (

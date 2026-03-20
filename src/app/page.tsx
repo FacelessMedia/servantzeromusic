@@ -92,16 +92,19 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          {/* Logo mark */}
-          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/30 mb-8 overflow-hidden">
-            <Image
-              src="/images/servant-zero-logo.png"
-              alt="Servant Zero"
-              width={96}
-              height={96}
-              className="rounded-full"
-              priority
-            />
+          {/* Hero Image — Servant Zero logo, large and dramatic */}
+          <div className="relative inline-block mb-10">
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl scale-110 animate-pulse" />
+            <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-primary/10 border-2 border-primary/40 overflow-hidden shadow-2xl shadow-primary/20">
+              <Image
+                src="/images/servant-zero-logo.png"
+                alt="Servant Zero"
+                width={208}
+                height={208}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
           </div>
 
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground mb-6">

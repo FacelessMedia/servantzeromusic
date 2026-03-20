@@ -73,8 +73,42 @@ export default function BoombapBiblePage() {
         </div>
       </section>
 
-      {/* Why I'm Creating This */}
+      {/* What Is It — moved to top as hook */}
       <section className="py-16 bg-secondary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-foreground mb-8 text-center">
+            What is Boombap Bible?
+          </h2>
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="w-full md:w-3/5 rounded-xl overflow-hidden border border-border shadow-lg">
+              <Image
+                src="/images/boombap-bible-funny.jpg"
+                alt="Servant Zero showing biblical elders a boombox — It's the Bible, with a hip hop backdrop"
+                width={800}
+                height={450}
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="md:w-2/5 space-y-4 text-muted-foreground leading-relaxed">
+              <p className="text-lg">
+                Boombap Bible is an ambitious project to set the entire King James
+                Version of the Bible to hip hop music — word for word.
+              </p>
+              <p>
+                No paraphrasing. No &ldquo;inspired by.&rdquo; Every verse sung
+                exactly as written, delivered in the Servant Zero style over
+                classic boom bap production.
+              </p>
+              <p className="text-foreground font-semibold text-lg">
+                Scripture that stays with you. Truth that hits different.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why I'm Creating This */}
+      <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-foreground mb-8 text-center">
             Why I&apos;m Creating This
@@ -112,20 +146,19 @@ export default function BoombapBiblePage() {
         </div>
       </section>
 
-      {/* YouTube Channel */}
-      <section className="py-16">
+      {/* Featured Song */}
+      <section className="py-16 bg-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-foreground mb-6 text-center">
-            Watch on YouTube
+            Hear It For Yourself
           </h2>
           <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
-            The Boombap Bible YouTube channel is where every chapter comes to
-            life. Subscribe to follow along as the project unfolds.
+            This is what the Word sounds like over boom bap. Press play.
           </p>
           <div className="aspect-video rounded-xl overflow-hidden border border-border">
             <iframe
-              src="https://www.youtube.com/embed?listType=user_uploads&list=boombapbible"
-              title="Boombap Bible YouTube Channel"
+              src="https://www.youtube.com/embed/pFmGhVoW254"
+              title="Boombap Bible — Sample"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="w-full h-full"
@@ -139,42 +172,8 @@ export default function BoombapBiblePage() {
               className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-semibold transition-colors"
             >
               <YouTubeIcon className="w-5 h-5" />
-              youtube.com/@boombapbible
+              Subscribe on YouTube
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* What Is It */}
-      <section className="py-16 bg-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold text-foreground mb-8 text-center">
-            What is Boombap Bible?
-          </h2>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/2 rounded-xl overflow-hidden border border-border shadow-lg">
-              <Image
-                src="/images/boombap-bible-funny.jpg"
-                alt="Servant Zero showing biblical elders a boombox — It's the Bible, with a hip hop backdrop"
-                width={600}
-                height={338}
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="md:w-1/2 space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Boombap Bible is an ambitious project to set the entire King James
-                Version of the Bible to hip hop music — word for word.
-              </p>
-              <p>
-                No paraphrasing. No &ldquo;inspired by.&rdquo; Every verse sung
-                exactly as written, delivered in the Servant Zero style over
-                classic boom bap production.
-              </p>
-              <p className="text-foreground font-semibold">
-                Scripture that stays with you. Truth that hits different.
-              </p>
-            </div>
           </div>
         </div>
       </section>

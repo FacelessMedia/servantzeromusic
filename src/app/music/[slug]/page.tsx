@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ShoppingCart, ExternalLink, Play } from "lucide-react";
+import { ArrowLeft, ShoppingCart, ExternalLink, Play, Music, Video, FileText, BookOpen } from "lucide-react";
+import { SongSidebar } from "@/components/SongSidebar";
 import { JsonLd, songSchema, breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
 import {
@@ -213,6 +214,18 @@ export default function SongPage({ params }: { params: { slug: string } }) {
         { name: song.title, url: `${SITE_URL}/music/${song.slug}` },
       ])} />
 
+      {/* Floating Sidebar */}
+      <SongSidebar
+        songTitle={song.title}
+        songUrl={`${SITE_URL}/music/${song.slug}`}
+        sections={[
+          { id: "song", label: "Song", icon: <Music className="w-4 h-4" /> },
+          ...(song.youtubeVideoId ? [{ id: "video", label: "Video", icon: <Video className="w-4 h-4" /> }] : []),
+          ...(song.lyrics ? [{ id: "lyrics", label: "Lyrics", icon: <FileText className="w-4 h-4" /> }] : []),
+          ...(song.inspiration ? [{ id: "story", label: "Story", icon: <BookOpen className="w-4 h-4" /> }] : []),
+        ]}
+      />
+
       {/* Back nav */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Link
@@ -225,7 +238,7 @@ export default function SongPage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Song Hero */}
-      <section className="py-10">
+      <section id="song" className="py-10 scroll-mt-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-8 items-start">
             {/* Cover Art */}
@@ -334,7 +347,7 @@ export default function SongPage({ params }: { params: { slug: string } }) {
 
       {/* Video Section — only if video ID exists */}
       {song.youtubeVideoId && (
-        <section className="py-10 bg-secondary">
+        <section id="video" className="py-10 bg-secondary scroll-mt-28">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
               <YouTubeIcon className="w-6 h-6 text-red-500" />
@@ -355,7 +368,7 @@ export default function SongPage({ params }: { params: { slug: string } }) {
 
       {/* Lyrics — only if lyrics exist */}
       {song.lyrics && (
-        <section className="py-16">
+        <section id="lyrics" className="py-16 scroll-mt-28">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl font-bold text-foreground mb-8">
               Lyrics
@@ -371,7 +384,7 @@ export default function SongPage({ params }: { params: { slug: string } }) {
 
       {/* Song Inspiration / Story — only if inspiration exists */}
       {song.inspiration && (
-        <section className="py-16 bg-secondary">
+        <section id="story" className="py-16 bg-secondary scroll-mt-28">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-heading text-2xl font-bold text-foreground mb-8">
               The Story Behind This Song

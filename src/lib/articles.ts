@@ -14,6 +14,10 @@ export type Article = {
   relatedArticles?: string[];
 };
 
+// NOTE: All articles are written from Servant Zero's first-person perspective.
+// Every major claim is paired with Scripture. Language is balanced to honor
+// God's Word while calling out the misuse of it. Only confirmed songs are referenced.
+
 export const ARTICLES: Article[] = [
   {
     slug: "what-is-spiritual-abuse",
@@ -26,7 +30,6 @@ export const ARTICLES: Article[] = [
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
       { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
-      { title: "Chains Don't Define Me", slug: "chains-dont-define-me" },
     ],
     relatedArticles: [
       "when-obedience-becomes-control",
@@ -48,7 +51,7 @@ Spiritual abuse is when someone in a position of spiritual authority uses that a
 It looks like:
 - **A pastor who demands unquestioning obedience** and frames any pushback as rebellion or spiritual immaturity.
 - **Financial manipulation disguised as tithing requirements** — "If you don't give, you're robbing God." Meanwhile the pastor drives a new car every year.
-- **Isolation from outside relationships** — your family and friends outside the church are painted as "worldly" or "a bad influence."
+- **Twisting biblical separation into total isolation** — Scripture does teach us to be discerning: "Bad company corrupts good morals" (1 Corinthians 15:33), and we're warned about being unequally yoked (2 Corinthians 6:14). That's real biblical wisdom. But abusive leaders twist healthy discernment into total isolation — cutting off family, friends, and any outside voice that might challenge their authority. The Bible also commands us to be salt and light to the world (Matthew 5:13-16) and to make disciples of all nations (Matthew 28:19-20). You can't reach the world if you're forbidden from having any relationship with it.
 - **Shame-based control** — public correction, private humiliation, the constant feeling that you're never doing enough.
 - **Spiritual gaslighting** — when you raise a concern and you're told you're being "used by the enemy" or that your discernment is off.
 
@@ -74,9 +77,9 @@ Let me be clear about something: not every uncomfortable sermon is spiritual abu
 
 Here's how I tell the difference now:
 
-**Healthy leadership** invites questions. It encourages you to study Scripture yourself. It celebrates when you grow beyond them. It admits mistakes. It serves.
+**Healthy leadership** invites questions. It encourages you to study Scripture yourself. It celebrates when you grow beyond them. It admits mistakes. It serves. Jesus modeled this in Matthew 20:26-28: "Whoever would be great among you must be your servant." Peter echoed it: "Shepherd the flock of God... not domineering over those in your charge, but being examples to the flock" (1 Peter 5:2-3).
 
-**Abusive leadership** punishes questions. It tells you that your interpretation of Scripture is wrong if it contradicts the pastor. It gets threatened when you grow. It never apologizes. It demands service.
+**Abusive leadership** punishes questions. It tells you that your interpretation of Scripture is wrong if it contradicts the pastor. It gets threatened when you grow. It never apologizes. It demands service. God warned about this through Ezekiel: "Woe to the shepherds of Israel who only feed themselves! Should not shepherds feed the flock?" (Ezekiel 34:2).
 
 If your pastor can't be questioned, that's not anointing — that's control.
 
@@ -108,7 +111,7 @@ Do you feel safe enough to ask questions? Do you feel free to disagree? Can you 
 
 If the answer to any of those is no, that's worth examining.
 
-And if you need a soundtrack for the journey — something that understands what you're going through — that's why I make music. Songs like "[Chains Don't Define Me](/music/chains-dont-define-me)" were written for moments exactly like this.
+And if you need a soundtrack for the journey — something that understands what you're going through — that's why I make music. "[I Forgive You, Pastor](/music/i-forgive-you-pastor)" was written for moments exactly like this.
 
 You're not alone. I promise.
 
@@ -127,7 +130,6 @@ You're not alone. I promise.
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
       { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
-      { title: "Hard To Talk To You", slug: "hard-to-talk-to-you" },
     ],
     relatedArticles: [
       "what-is-spiritual-abuse",
@@ -171,7 +173,7 @@ For the first time in years, I could pray without performing. I could read Scrip
 
 It was terrifying and beautiful at the same time.
 
-I wrote "[Hard To Talk To You](/music/hard-to-talk-to-you)" during that season. Because for a while, I didn't know how to pray anymore. The only version of prayer I knew was the one I'd been taught in that church — loud, performative, formulaic. Real prayer felt like learning a new language.
+During that season, I didn't know how to pray anymore. The only version of prayer I knew was the one I'd been taught in that church — loud, performative, formulaic. Real prayer felt like learning a new language. But Psalm 46:10 says, "Be still, and know that I am God." Maybe silence was where He'd been waiting for me all along.
 
 ## The Guilt Stage
 
@@ -209,7 +211,7 @@ If you're reading this and you're in a church that feels more like a cage than a
 
 But I will tell you this:
 
-God is not held hostage inside a building. He's not owned by a denomination. He's not controlled by a man in a suit who says he speaks for Him.
+God is not held hostage inside a building. He's not owned by a denomination. He's not controlled by a man in a suit who says he speaks for Him. Jesus said, "Where two or three are gathered in my name, there am I among them" (Matthew 18:20). He didn't say "where a 501(c)(3) with a board of directors meets on Sunday."
 
 If you leave, God goes with you. He already has. He's been there every moment you've been hurting, even when you couldn't feel Him.
 
@@ -234,7 +236,6 @@ You're not in rebellion. You're in recovery.
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
       { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
-      { title: "Dear Mom and Dad", slug: "dear-mom-and-dad" },
     ],
     relatedArticles: [
       "leaving-church-vs-leaving-god",
@@ -305,7 +306,7 @@ I wasn't punishing my pastor by holding onto it. I was punishing myself.
 
 Forgiveness was the door I had to walk through to get my life back. Not his life. Mine.
 
-I wrote "[Dear Mom and Dad](/music/dear-mom-and-dad)" around the same time. Because forgiveness isn't just about pastors — it's about every relationship that's been damaged along the way. Parents, friends, leaders. The people who should have protected you and didn't.
+Forgiveness isn't just about pastors — it's about every relationship that's been damaged along the way. Parents, friends, leaders. The people who should have protected you and didn't. Ephesians 4:31-32 says, "Let all bitterness and wrath and anger and clamor and slander be put away from you, along with all malice. Be kind to one another, tenderhearted, forgiving one another, as God in Christ forgave you." That's the standard. And it's impossibly high. But it's not about perfection — it's about direction.
 
 ## If You're Not Ready
 
@@ -332,7 +333,6 @@ And if you need a song to sit with in the meantime, "[I Forgive You, Pastor](/mu
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
       { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
-      { title: "Babylon Burns", slug: "babylon-burns" },
     ],
     relatedArticles: [
       "what-is-spiritual-abuse",
@@ -396,7 +396,7 @@ Biblical submission and manufactured compliance look similar from the outside. B
 
 If your obedience is motivated by love and trust, you're in a healthy place. If your obedience is motivated by fear and obligation, something is wrong.
 
-I wrote "[Babylon Burns](/music/babylon-burns)" about the systems that use God's name to build empires. Because that's what this is — an empire disguised as a church. A kingdom built on the backs of people who thought they were serving God.
+Jesus Himself confronted the Pharisees — the religious leaders of His day who piled heavy burdens on people's shoulders while refusing to lift a finger to help (Matthew 23:4). He called them whitewashed tombs — beautiful on the outside, full of dead bones within (Matthew 23:27). When religious systems use God's name to build empires on the backs of good people, that's not the Kingdom. That's the very thing Jesus opposed.
 
 ## Breaking Free
 
@@ -427,8 +427,7 @@ The chains don't define you. They never did.
     tags: ["healing", "faith"],
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
-      { title: "Start Over", slug: "start-over" },
-      { title: "Desperation Like Hers", slug: "desperation-like-hers" },
+      { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
     ],
     relatedArticles: [
       "leaving-church-vs-leaving-god",
@@ -484,7 +483,7 @@ And I started to see things I'd never noticed before. How gentle Jesus was with 
 
 That was healing. Seeing Jesus take my side. Not against faith — against the abuse of faith.
 
-I wrote "[Start Over](/music/start-over)" during this season. Because that's exactly what it felt like — pressing reset on everything and building from the ground up.
+That season felt like pressing reset on everything and building from the ground up. Isaiah 43:19 kept echoing in my mind: "Behold, I am doing a new thing; now it springs forth, do you not perceive it?"
 
 ## Finding Community Again
 
@@ -508,7 +507,7 @@ Your faith might have more questions than answers. That's okay too. Questions ar
 
 Your faith might not fit into the box it used to. Good. That box was too small anyway.
 
-If you're in the rebuilding phase, listen to "[Desperation Like Hers](/music/desperation-like-hers)." It's about the woman in the Bible who pushed through the crowd just to touch the hem of Jesus' garment. She didn't have perfect theology. She didn't have it all figured out. She just knew she needed Him. And that was enough.
+If you're in the rebuilding phase, think about the woman in the Bible who pushed through the crowd just to touch the hem of Jesus' garment (Mark 5:25-34). She didn't have perfect theology. She didn't have it all figured out. She just knew she needed Him. And that was enough. Jesus didn't turn her away for her lack of understanding — He called her "daughter" and said her faith had made her well.
 
 That's where I am. Still reaching. Still healing. Still rebuilding.
 
@@ -529,8 +528,6 @@ And if you're here too, you're not alone.
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
       { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
-      { title: "I'm Haunted", slug: "im-haunted" },
-      { title: "Chains Don't Define Me", slug: "chains-dont-define-me" },
     ],
     relatedArticles: [
       "rebuilding-faith-after-church-hurt",
@@ -568,9 +565,7 @@ That's the gap. That's why I make what I make.
 
 Songs like "[I Forgive You, Pastor](/music/i-forgive-you-pastor)" aren't worship songs. They're survival songs. They're for the person who needs to know they're not the only one. They're for the person who needs to hear their own story reflected back to them in melody.
 
-"[I'm Haunted](/music/im-haunted)" is about the nights when the memories won't let go. When you're lying in bed and your old church is playing on loop in your mind like a movie you can't turn off.
-
-"[Chains Don't Define Me](/music/chains-dont-define-me)" is about the moment you realize that what happened to you doesn't get to determine who you become.
+Some songs are about the nights when the memories won't let go. Others are about the moment you realize that what happened to you doesn't get to determine who you become. As Paul wrote, "We are hard pressed on every side, but not crushed; perplexed, but not in despair; persecuted, but not abandoned; struck down, but not destroyed" (2 Corinthians 4:8-9).
 
 These songs aren't trying to fix you. They're trying to sit with you. And sometimes, sitting with someone is the most healing thing in the world.
 
@@ -619,7 +614,6 @@ You're not alone. Someone put their pain into a beat and a melody so that you'd 
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
       { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
-      { title: "Babylon Burns", slug: "babylon-burns" },
     ],
     relatedArticles: [
       "what-is-spiritual-abuse",
@@ -669,15 +663,15 @@ These phrases are designed to make you feel spiritually inadequate unless you gi
 
 If giving felt more like an obligation than a joy, something was wrong.
 
-## 5. You Were Isolated From Outside Relationships
+## 5. Biblical Discernment Was Twisted Into Total Isolation
 
-Controlling churches need you to be dependent on them. That means your outside relationships have to be minimized.
+Let me be balanced here. Scripture does teach us to be wise about our relationships. "Bad company corrupts good morals" (1 Corinthians 15:33). "What fellowship has light with darkness?" (2 Corinthians 6:14). Those are real, inspired truths. We should be careful about who we allow to shape our hearts.
 
-Maybe it was subtle: "Be careful about spending too much time with people who aren't believers." Maybe it was direct: "Your family is pulling you away from your calling."
+But controlling churches twist that healthy discernment into something else entirely. They don't just say "be wise" — they systematically cut you off from anyone outside the church. Your unsaved family? "Bad influence." Your old friends? "Worldly." A counselor? "You should only seek counsel from your pastor."
 
-Either way, the effect is the same. Your world shrinks. Your support system narrows to people who are all inside the same system. And when your only community is the one controlled by the pastor, leaving feels like losing everything.
+The result is the same: your world shrinks. Your only support system is inside the church. And when the church is the source of your pain, you have nowhere to go.
 
-That's not discipleship. That's isolation. And it's a classic tool of control.
+Here's the thing: Jesus commanded us to be salt and light to the world (Matthew 5:13-16). He told us to go into all nations and make disciples (Matthew 28:19-20). You can't do that if you're forbidden from having any relationship outside the church walls. Biblical community is protective, not imprisoning.
 
 ## 6. Your Time Was Not Your Own
 
@@ -703,7 +697,7 @@ If you recognized yourself in three or more of these signs, you were likely in a
 
 But now you can see it. And seeing it is the beginning of healing.
 
-I wrote "[Babylon Burns](/music/babylon-burns)" about these systems — the religious empires built on the backs of good people. And "[I Forgive You, Pastor](/music/i-forgive-you-pastor)" for the personal side of it.
+"[I Forgive You, Pastor](/music/i-forgive-you-pastor)" was written for the personal side of this — the moment you name what happened and begin to let go. Jesus warned about these kinds of leaders: "Beware of false prophets, who come to you in sheep's clothing but inwardly are ravenous wolves" (Matthew 7:15).
 
 Start with "[What Is Spiritual Abuse?](/truth-and-healing/what-is-spiritual-abuse)" if you want to understand the bigger picture. And read "[When 'Obey Your Pastor' Becomes a Weapon](/truth-and-healing/when-obedience-becomes-control)" for a deeper look at how Scripture gets twisted to maintain control.
 
@@ -723,8 +717,7 @@ You're not dramatic. You're awake.
     tags: ["church hurt", "healing", "awareness"],
     image: "/images/servant-zero-logo.png",
     relatedSongs: [
-      { title: "I'm Haunted", slug: "im-haunted" },
-      { title: "Start Over", slug: "start-over" },
+      { title: "I Forgive You, Pastor", slug: "i-forgive-you-pastor" },
     ],
     relatedArticles: [
       "what-is-spiritual-abuse",
@@ -772,7 +765,7 @@ I'd sit in the back row, closest to the exit. I'd track the pastor's tone of voi
 
 This isn't faithlessness. It's survival.
 
-I wrote "[I'm Haunted](/music/im-haunted)" about this exact experience. The nights when the memories play on repeat. When you're trying to move forward but your brain keeps dragging you back. When you're haunted by a place that was supposed to be a sanctuary.
+That's what so many of us live with — the nights when the memories play on repeat. When you're trying to move forward but your brain keeps dragging you back. When you're haunted by a place that was supposed to be a sanctuary. David knew this feeling: "My heart is in anguish within me; the terrors of death have fallen on me. Fear and trembling have beset me; horror has overwhelmed me" (Psalm 55:4-5). And who was David running from? His own trusted companion — someone who walked with him to the house of God (Psalm 55:12-14).
 
 ## What Helped Me
 
@@ -808,7 +801,7 @@ If you're experiencing symptoms of religious trauma, please know:
 - **You're not faithless.** Trauma responses aren't a faith problem. They're a nervous system problem.
 - **Healing is possible.** Not instant. Not linear. But possible.
 
-Listen to "[Start Over](/music/start-over)" when you're ready. It's about pressing reset — not pretending the past didn't happen, but choosing to build something new from the rubble.
+Listen to "[I Forgive You, Pastor](/music/i-forgive-you-pastor)" when you're ready. It's about choosing to build something new from the rubble — not pretending the past didn't happen, but refusing to let it have the last word. "He heals the brokenhearted and binds up their wounds" (Psalm 147:3).
 
 And read "[How to Rebuild Your Faith After Church Hurt](/truth-and-healing/rebuilding-faith-after-church-hurt)" for practical steps forward.
 

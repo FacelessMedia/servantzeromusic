@@ -57,8 +57,12 @@ export default function RootLayout({
         <JsonLd data={websiteSchema()} />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
+        {/* Under Construction Banner */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-primary text-primary-foreground text-center text-xs sm:text-sm font-semibold py-1.5 px-4">
+          🚧 This site is under construction — expect changes over the next couple weeks! 🚧
+        </div>
         <Header />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1 pt-[calc(4rem+2rem)]">{children}</main>
         <Footer />
       </body>
     </html>
