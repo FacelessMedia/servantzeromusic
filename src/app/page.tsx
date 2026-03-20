@@ -1,23 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { Music, Play, Mic, BookOpen, ScrollText, ArrowRight } from "lucide-react";
 import {
-  Music,
-  Play,
-  Mic,
-  BookOpen,
-  ScrollText,
-  ArrowRight,
-  Headphones,
-} from "lucide-react";
+  SpotifyIcon,
+  YouTubeIcon,
+  YouTubeMusicIcon,
+  AppleMusicIcon,
+  AmazonMusicIcon,
+} from "@/components/icons/BrandIcons";
 
 function StreamingButton({
   label,
   href,
   color,
+  icon,
 }: {
   label: string;
   href: string;
   color: string;
+  icon: React.ReactNode;
 }) {
   return (
     <a
@@ -26,7 +28,7 @@ function StreamingButton({
       rel="noopener noreferrer"
       className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-semibold transition-all hover:scale-105 ${color}`}
     >
-      <Headphones className="w-4 h-4" />
+      {icon}
       {label}
     </a>
   );
@@ -82,10 +84,15 @@ export default function Home() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
           {/* Logo mark */}
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/40 mb-8">
-            <span className="text-primary font-heading text-3xl font-bold">
-              SZ
-            </span>
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/30 mb-8 overflow-hidden">
+            <Image
+              src="/images/servant-zero-logo.png"
+              alt="Servant Zero"
+              width={96}
+              height={96}
+              className="rounded-full"
+              priority
+            />
           </div>
 
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground mb-6">
@@ -159,26 +166,31 @@ export default function Home() {
               label="Spotify"
               href={SOCIAL_LINKS.spotify}
               color="bg-[#1DB954]/10 text-[#1DB954] hover:bg-[#1DB954]/20"
+              icon={<SpotifyIcon className="w-5 h-5" />}
             />
             <StreamingButton
               label="Apple Music"
               href={SOCIAL_LINKS.appleMusic}
               color="bg-white/10 text-white hover:bg-white/20"
+              icon={<AppleMusicIcon className="w-5 h-5" />}
             />
             <StreamingButton
               label="YouTube Music"
               href={SOCIAL_LINKS.youtubeMusic}
               color="bg-red-500/10 text-red-400 hover:bg-red-500/20"
+              icon={<YouTubeMusicIcon className="w-5 h-5" />}
             />
             <StreamingButton
               label="Amazon Music"
               href={SOCIAL_LINKS.amazonMusic}
               color="bg-[#25D1DA]/10 text-[#25D1DA] hover:bg-[#25D1DA]/20"
+              icon={<AmazonMusicIcon className="w-5 h-5" />}
             />
             <StreamingButton
               label="YouTube"
               href={SOCIAL_LINKS.youtube}
               color="bg-red-600/10 text-red-500 hover:bg-red-600/20"
+              icon={<YouTubeIcon className="w-5 h-5" />}
             />
           </div>
         </div>

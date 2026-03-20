@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 
@@ -14,9 +15,13 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">SZ</span>
-            </div>
+            <Image
+              src="/images/servant-zero-logo.png"
+              alt="Servant Zero"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
             <span className="font-heading text-lg font-bold tracking-wide text-foreground group-hover:text-primary transition-colors">
               {SITE_NAME}
             </span>

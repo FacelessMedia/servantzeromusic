@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ScrollText } from "lucide-react";
+import { YouTubeIcon } from "@/components/icons/BrandIcons";
 
 export const metadata: Metadata = {
   title: "Boombap Bible — Scripture You Can Feel",
@@ -40,10 +41,91 @@ export default function BoombapBiblePage() {
           </span>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
+              href="https://youtube.com/@boombapbible"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 transition-colors"
+            >
+              <YouTubeIcon className="w-5 h-5" />
+              Subscribe on YouTube
+            </a>
+            <a
               href="#notify"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-bold rounded-md hover:bg-crimson-500 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-border text-foreground font-semibold rounded-md hover:bg-muted transition-colors"
             >
               Get Notified
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Why I'm Creating This */}
+      <section className="py-16 bg-secondary">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-foreground mb-8 text-center">
+            Why I&apos;m Creating This
+          </h2>
+          <div className="space-y-5 text-muted-foreground leading-relaxed">
+            <p>
+              There are people who will never open a Bible. They won&apos;t walk
+              into a church. They won&apos;t sit through a sermon. But they will
+              press play.
+            </p>
+            <p>
+              Music reaches people where words on a page can&apos;t. It embeds
+              itself in your mind. It follows you to work, rides with you in the
+              car, and plays in your head long after the headphones come off.
+              What if Scripture could do the same thing?
+            </p>
+            <p>
+              That&apos;s the vision behind Boombap Bible — to take the
+              King James Version of the Bible, word for word, and set it to
+              classic boom bap hip hop production. Not paraphrased. Not
+              &ldquo;inspired by.&rdquo; The actual text of Scripture, delivered
+              over soulful samples and hard-hitting drums.
+            </p>
+            <p className="text-foreground font-semibold text-lg">
+              The music becomes the backdrop to the Word. The beat becomes the
+              vehicle. And the listener — who may never have picked up a Bible —
+              walks away with Scripture embedded in their memory.
+            </p>
+            <p>
+              I&apos;m not trying to replace reading the Bible. I&apos;m trying
+              to reach the people who never will — and give them a way to hear
+              it, feel it, and carry it with them.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Channel */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-foreground mb-6 text-center">
+            Watch on YouTube
+          </h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+            The Boombap Bible YouTube channel is where every chapter comes to
+            life. Subscribe to follow along as the project unfolds.
+          </p>
+          <div className="aspect-video rounded-xl overflow-hidden border border-border">
+            <iframe
+              src="https://www.youtube.com/embed?listType=user_uploads&list=boombapbible"
+              title="Boombap Bible YouTube Channel"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+          <div className="mt-6 text-center">
+            <a
+              href="https://youtube.com/@boombapbible"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-semibold transition-colors"
+            >
+              <YouTubeIcon className="w-5 h-5" />
+              youtube.com/@boombapbible
             </a>
           </div>
         </div>

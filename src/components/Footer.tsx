@@ -1,17 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SOCIAL_LINKS, AI_DISCLAIMER, SITE_NAME } from "@/lib/constants";
-import { Youtube, Music, Facebook, Instagram, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
+import {
+  SpotifyIcon,
+  YouTubeIcon,
+  YouTubeMusicIcon,
+  AppleMusicIcon,
+  AmazonMusicIcon,
+  TikTokIcon,
+  InstagramIcon,
+  FacebookIcon,
+} from "@/components/icons/BrandIcons";
 
 function SocialIcon({ platform, href }: { platform: string; href: string }) {
   const iconMap: Record<string, React.ReactNode> = {
-    youtube: <Youtube className="w-5 h-5" />,
-    spotify: <Music className="w-5 h-5" />,
-    appleMusic: <Music className="w-5 h-5" />,
-    amazonMusic: <Music className="w-5 h-5" />,
-    youtubeMusic: <Youtube className="w-5 h-5" />,
-    tiktok: <Music className="w-5 h-5" />,
-    instagram: <Instagram className="w-5 h-5" />,
-    facebook: <Facebook className="w-5 h-5" />,
+    youtube: <YouTubeIcon className="w-5 h-5" />,
+    spotify: <SpotifyIcon className="w-5 h-5" />,
+    appleMusic: <AppleMusicIcon className="w-5 h-5" />,
+    amazonMusic: <AmazonMusicIcon className="w-5 h-5" />,
+    youtubeMusic: <YouTubeMusicIcon className="w-5 h-5" />,
+    tiktok: <TikTokIcon className="w-5 h-5" />,
+    instagram: <InstagramIcon className="w-5 h-5" />,
+    facebook: <FacebookIcon className="w-5 h-5" />,
   };
 
   const labelMap: Record<string, string> = {
@@ -34,7 +45,7 @@ function SocialIcon({ platform, href }: { platform: string; href: string }) {
       aria-label={labelMap[platform] || platform}
       title={labelMap[platform] || platform}
     >
-      {iconMap[platform] || <Music className="w-5 h-5" />}
+      {iconMap[platform] || <SpotifyIcon className="w-5 h-5" />}
     </a>
   );
 }
@@ -64,10 +75,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">SZ</span>
-              </div>
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <Image
+                src="/images/servant-zero-logo.png"
+                alt="Servant Zero"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
               <span className="font-heading text-lg font-bold tracking-wide text-foreground">
                 {SITE_NAME}
               </span>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BookOpen } from "lucide-react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Church Hurt, Now What? — The Book",
@@ -22,8 +22,15 @@ export default function BookPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-10">
-            <div className="w-48 h-64 bg-card border border-border rounded-lg flex items-center justify-center flex-shrink-0">
-              <BookOpen className="w-16 h-16 text-primary/40" />
+            <div className="w-48 h-64 rounded-lg overflow-hidden border border-border flex-shrink-0">
+              <Image
+                src="/images/book-cover.jpeg"
+                alt="Church Hurt, Now What? Book Cover"
+                width={192}
+                height={256}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="text-center md:text-left">
               <p className="text-sm text-primary font-semibold mb-2">A book by Servant Zero</p>

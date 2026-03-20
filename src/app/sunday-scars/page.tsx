@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mic } from "lucide-react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Sunday Scars Podcast",
@@ -24,8 +24,15 @@ export default function SundayScarsPage() {
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border-2 border-primary/40 mb-6">
-            <Mic className="w-7 h-7 text-primary" />
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full overflow-hidden mb-6">
+            <Image
+              src="/images/sunday-scars-logo.png"
+              alt="Sunday Scars"
+              width={80}
+              height={80}
+              className="rounded-full"
+              priority
+            />
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4">
             SUNDAY SCARS

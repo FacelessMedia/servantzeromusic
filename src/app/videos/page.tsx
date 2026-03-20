@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Youtube } from "lucide-react";
+import { YouTubeIcon } from "@/components/icons/BrandIcons";
 
 export const metadata: Metadata = {
   title: "Videos",
@@ -59,7 +59,7 @@ export default function VideosPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-red-600/10 text-red-500 font-semibold rounded-md hover:bg-red-600/20 transition-colors"
           >
-            <Youtube className="w-5 h-5" />
+            <YouTubeIcon className="w-5 h-5" />
             See All 173+ Videos on YouTube
           </a>
         </div>
