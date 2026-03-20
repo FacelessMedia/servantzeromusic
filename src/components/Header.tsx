@@ -6,41 +6,44 @@ import Image from "next/image";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 
+const ROW_1 = NAV_LINKS.filter((l) =>
+  ["Music", "Videos", "My Story", "About"].includes(l.label)
+);
+const ROW_2 = NAV_LINKS.filter(
+  (l) => !["Music", "Videos", "My Story", "About"].includes(l.label)
+);
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        {/* Top bar: logo + row 1 + CTA */}
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <Image
               src="/images/servant-zero-logo.png"
               alt="Servant Zero"
-              width={32}
-              height={32}
+              width={28}
+              height={28}
               className="rounded-full"
             />
-            <span className="font-heading text-lg font-bold tracking-wide text-foreground group-hover:text-primary transition-colors">
+            <span className="font-heading text-base font-bold tracking-wide text-foreground group-hover:text-primary transition-colors">
               {SITE_NAME}
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav Row 1 */}
           <nav className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
+            {ROW_1.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                target={"external" in link && link.external ? "_blank" : undefined}
-                rel={"external" in link && link.external ? "noopener noreferrer" : undefined}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all"
+                className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all"
               >
-                <span className="flex items-center gap-1">
-                  {link.label}
-                  {"external" in link && link.external && <ExternalLink className="w-3 h-3" />}
-                </span>
+                {link.label}
               </Link>
             ))}
           </nav>
@@ -49,7 +52,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/music"
-              className="hidden sm:inline-flex items-center px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-md hover:bg-crimson-500 transition-colors"
+              className="hidden sm:inline-flex items-center px-4 py-1.5 bg-primary text-primary-foreground text-sm font-semibold rounded-md hover:bg-crimson-500 transition-colors"
             >
               Listen Now
             </Link>
@@ -62,6 +65,24 @@ export function Header() {
             </button>
           </div>
         </div>
+
+        {/* Desktop Nav Row 2 */}
+        <nav className="hidden lg:flex items-center justify-center gap-1 pb-2 -mt-1">
+          {ROW_2.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              target={"external" in link && link.external ? "_blank" : undefined}
+              rel={"external" in link && link.external ? "noopener noreferrer" : undefined}
+              className="px-3 py-1 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all"
+            >
+              <span className="flex items-center gap-1">
+                {link.label}
+                {"external" in link && link.external && <ExternalLink className="w-3 h-3" />}
+              </span>
+            </Link>
+          ))}
+        </nav>
       </div>
 
       {/* Mobile Menu Overlay */}

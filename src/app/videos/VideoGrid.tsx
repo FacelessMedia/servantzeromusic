@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Image from "next/image";
+import { ArrowUpDown } from "lucide-react";
 import { YouTubeIcon } from "@/components/icons/BrandIcons";
 
-// Video data — newest first, no shorts (all >60s).
+// Video data — no shorts (all >60s).
 // Duration in seconds. Videos under 61s are filtered out.
-const ALL_VIDEOS = [
+const RAW_VIDEOS = [
   { id: "sR665fcOy4E", title: "Racism Is Racist", duration: 198, date: "2025-03-15" },
   { id: "yFsF5zbg2sc", title: "I'm Haunted", duration: 245, date: "2025-03-10" },
   { id: "s_JkH_4d4VA", title: "I Forgive You, Pastor", duration: 222, date: "2025-03-05" },
@@ -23,33 +24,37 @@ const ALL_VIDEOS = [
   { id: "OPf0YbXqDm0", title: "Let Me Go", duration: 190, date: "2025-01-05" },
   { id: "hT_nvWreIhg", title: "Not Your Puppet", duration: 220, date: "2024-12-30" },
   { id: "CevxZvSJLk8", title: "Grace Over Guilt", duration: 245, date: "2024-12-25" },
-]
-  // Filter out shorts (<=60 seconds)
-  .filter((v) => v.duration > 60)
-  // Sort newest first
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+].filter((v) => v.duration > 60);
 
 const VIDEOS_PER_PAGE = 6;
-
-// Placeholder sub count — will be replaced by YouTube Data API when key is provided
 const YT_SUB_COUNT = "7.67K";
+const YT_CHANNEL_URL = "https://youtube.com/@servantzeromusic";
+
+type VideoSort = "newest" | "oldest";
 
 export function VideoGrid() {
   const [visibleCount, setVisibleCount] = useState(VIDEOS_PER_PAGE);
   const [loading, setLoading] = useState(false);
+  const [sortOrder, setSortOrder] = useState<VideoSort>("newest");
   const sentinelRef = useRef<HTMLDivElement>(null);
 
-  const hasMore = visibleCount < ALL_VIDEOS.length;
+  const sortedVideos = useMemo(() => {
+    const vids = [...RAW_VIDEOS];
+    return sortOrder === "newest"
+      ? vids.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      : vids.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  }, [sortOrder]);
+
+  const hasMore = visibleCount < sortedVideos.length;
 
   const loadMore = useCallback(() => {
     if (!hasMore || loading) return;
     setLoading(true);
-    // Simulate network delay for loading indicator
     setTimeout(() => {
-      setVisibleCount((prev) => Math.min(prev + VIDEOS_PER_PAGE, ALL_VIDEOS.length));
+      setVisibleCount((prev) => Math.min(prev + VIDEOS_PER_PAGE, sortedVideos.length));
       setLoading(false);
     }, 800);
-  }, [hasMore, loading]);
+  }, [hasMore, loading, sortedVideos.length]);
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
@@ -68,24 +73,41 @@ export function VideoGrid() {
     return () => observer.disconnect();
   }, [loadMore]);
 
-  const visibleVideos = ALL_VIDEOS.slice(0, visibleCount);
+  const visibleVideos = sortedVideos.slice(0, visibleCount);
 
   return (
     <section className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header with sub count */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-600/10 text-red-500 rounded-full mb-6">
-            <YouTubeIcon className="w-5 h-5" />
-            <span className="text-sm font-semibold">{YT_SUB_COUNT} subscribers</span>
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
+          <div>
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">
+              Servant Zero Lyric Videos
+            </h1>
+            <a
+              href={YT_CHANNEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 px-4 py-1.5 bg-red-600/10 text-red-500 rounded-full hover:bg-red-600/20 transition-colors"
+            >
+              <YouTubeIcon className="w-4 h-4" />
+              <span className="text-sm font-semibold">{YT_SUB_COUNT} subscribers</span>
+            </a>
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            Videos
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Watch Servant Zero music videos. Newest first. No shorts — only
-            full-length music videos.
-          </p>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <ArrowUpDown className="w-4 h-4 text-muted-foreground" />
+            <select
+              value={sortOrder}
+              onChange={(e) => {
+                setSortOrder(e.target.value as VideoSort);
+                setVisibleCount(VIDEOS_PER_PAGE);
+              }}
+              className="bg-muted text-foreground text-sm font-medium rounded-md px-3 py-2 border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+            </select>
+          </div>
         </div>
 
         {/* Video Grid */}

@@ -33,18 +33,19 @@ const ALL_TAGS = Array.from(new Set(SONGS.flatMap((s) => s.tags))).sort();
 
 type SortMode = "newest" | "oldest" | "az" | "za";
 
-// Placeholder stats — will be replaced by live API data
+// Platform links — values will update once APIs are connected
 const PLATFORM_STATS = [
-  { label: "YouTube Subs", value: "7.67K", icon: <YouTubeIcon className="w-4 h-4" />, color: "text-red-500", href: SOCIAL_LINKS.youtube },
-  { label: "Spotify Listeners", value: "Coming Soon", icon: <SpotifyIcon className="w-4 h-4" />, color: "text-[#1DB954]", href: SOCIAL_LINKS.spotify },
-  { label: "Apple Music", value: "Available", icon: <AppleMusicIcon className="w-4 h-4" />, color: "text-white", href: SOCIAL_LINKS.appleMusic },
-  { label: "YouTube Music", value: "Available", icon: <YouTubeMusicIcon className="w-4 h-4" />, color: "text-red-400", href: SOCIAL_LINKS.youtubeMusic },
-  { label: "Amazon Music", value: "Available", icon: <AmazonMusicIcon className="w-4 h-4" />, color: "text-[#25D1DA]", href: SOCIAL_LINKS.amazonMusic },
+  { label: "YouTube", value: "7.67K subs", icon: <YouTubeIcon className="w-4 h-4" />, color: "text-red-500", href: SOCIAL_LINKS.youtube },
+  { label: "Spotify", value: null, icon: <SpotifyIcon className="w-4 h-4" />, color: "text-[#1DB954]", href: SOCIAL_LINKS.spotify },
+  { label: "Apple Music", value: null, icon: <AppleMusicIcon className="w-4 h-4" />, color: "text-white", href: SOCIAL_LINKS.appleMusic },
+  { label: "YouTube Music", value: null, icon: <YouTubeMusicIcon className="w-4 h-4" />, color: "text-red-400", href: SOCIAL_LINKS.youtubeMusic },
+  { label: "Amazon Music", value: null, icon: <AmazonMusicIcon className="w-4 h-4" />, color: "text-[#25D1DA]", href: SOCIAL_LINKS.amazonMusic },
 ];
 
 export function MusicCatalog() {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
   const [sortMode, setSortMode] = useState<SortMode>("newest");
+  const [nowPlaying, setNowPlaying] = useState<typeof SONGS[number] | null>(null);
 
   const toggleTag = (tag: string) => {
     setActiveTags((prev) => {
@@ -87,7 +88,7 @@ export function MusicCatalog() {
   return (
     <section className="py-24 sm:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Platform Stats Bar */}
+        {/* Platform Links Bar */}
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-10">
           {PLATFORM_STATS.map((stat) => (
             <a
@@ -98,12 +99,15 @@ export function MusicCatalog() {
               className="flex items-center gap-1.5 group"
             >
               <span className={stat.color}>{stat.icon}</span>
-              <span className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
-                {stat.value}
-              </span>
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wider hidden sm:inline">
-                {stat.label}
-              </span>
+              {stat.value ? (
+                <span className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
+                  {stat.value}
+                </span>
+              ) : (
+                <span className="text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors">
+                  {stat.label}
+                </span>
+              )}
             </a>
           ))}
         </div>
@@ -176,13 +180,17 @@ export function MusicCatalog() {
         {/* Song Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSongs.map((song) => (
-            <Link
+            <div
               key={song.slug}
-              href={`/music/${song.slug}`}
               className="group relative flex flex-col bg-card border border-border rounded-xl hover:border-primary/50 transition-all overflow-hidden"
             >
               <div className="flex items-center gap-4 p-5">
-                <div className="w-14 h-14 rounded-lg overflow-hidden bg-primary/10 flex-shrink-0 relative">
+                {/* Cover art — clicking plays the song inline */}
+                <button
+                  onClick={() => setNowPlaying(nowPlaying?.slug === song.slug ? null : song)}
+                  className="w-14 h-14 rounded-lg overflow-hidden bg-primary/10 flex-shrink-0 relative cursor-pointer"
+                  aria-label={`Play ${song.title}`}
+                >
                   <Image
                     src={song.cover}
                     alt={song.title}
@@ -190,14 +198,28 @@ export function MusicCatalog() {
                     height={56}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Play className="w-5 h-5 text-white fill-white" />
+                  <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity ${
+                    nowPlaying?.slug === song.slug ? "opacity-100 bg-primary/60" : "opacity-0 group-hover:opacity-100"
+                  }`}>
+                    {nowPlaying?.slug === song.slug ? (
+                      <div className="flex gap-0.5">
+                        <span className="w-1 h-4 bg-white rounded-full animate-pulse" />
+                        <span className="w-1 h-3 bg-white rounded-full animate-pulse delay-75" />
+                        <span className="w-1 h-5 bg-white rounded-full animate-pulse delay-150" />
+                      </div>
+                    ) : (
+                      <Play className="w-5 h-5 text-white fill-white" />
+                    )}
                   </div>
-                </div>
+                </button>
+                {/* Title — clicking goes to full song page */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground truncate group-hover:text-primary transition-colors">
+                  <Link
+                    href={`/music/${song.slug}`}
+                    className="font-semibold text-foreground truncate block hover:text-primary transition-colors"
+                  >
                     {song.title}
-                  </h3>
+                  </Link>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <span>Servant Zero</span>
                     <span>&middot;</span>
@@ -215,7 +237,7 @@ export function MusicCatalog() {
                   </span>
                 ))}
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
@@ -237,6 +259,48 @@ export function MusicCatalog() {
           </p>
         </div>
       </div>
+
+      {/* Bottom Audio Player Bar */}
+      {nowPlaying && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-t border-border shadow-2xl">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4 h-16">
+            {/* Cover */}
+            <div className="w-10 h-10 rounded-md overflow-hidden flex-shrink-0">
+              <Image
+                src={nowPlaying.cover}
+                alt={nowPlaying.title}
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Info */}
+            <div className="flex-1 min-w-0">
+              <Link
+                href={`/music/${nowPlaying.slug}`}
+                className="text-sm font-semibold text-foreground truncate block hover:text-primary transition-colors"
+              >
+                {nowPlaying.title}
+              </Link>
+              <p className="text-xs text-muted-foreground">Servant Zero &middot; {nowPlaying.duration}</p>
+            </div>
+            {/* Placeholder progress bar */}
+            <div className="hidden sm:block flex-1 max-w-xs">
+              <div className="h-1 bg-muted rounded-full overflow-hidden">
+                <div className="h-full w-1/3 bg-primary rounded-full animate-pulse" />
+              </div>
+            </div>
+            {/* Controls */}
+            <button
+              onClick={() => setNowPlaying(null)}
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Stop"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

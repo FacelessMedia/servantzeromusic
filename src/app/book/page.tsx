@@ -65,21 +65,32 @@ export default function BookPage() {
 
       {/* About */}
       <section id="about" className="py-16 bg-secondary">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl font-bold text-foreground mb-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-foreground mb-8 text-center">
             I Didn&apos;t Leave Church
           </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>I left an abusive one. And I found a healthy one.</p>
-            <p>
-              I still believe in being under leadership. I still believe in
-              obedience. I still believe in having a pastor. I just couldn&apos;t
-              continue to be abused.
-            </p>
-            <p className="text-foreground font-semibold">
-              This book won&apos;t tell you to abandon church. It will help you
-              untangle what happened — and find your way to healthy community.
-            </p>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="w-full md:w-1/2 rounded-xl overflow-hidden border border-border shadow-lg">
+              <Image
+                src="/images/servant-giving-book.jpg"
+                alt="Servant Zero handing the Church Hurt, Now What? book to a man weeping on church steps"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="md:w-1/2 space-y-4 text-muted-foreground leading-relaxed">
+              <p>I left an abusive one. And I found a healthy one.</p>
+              <p>
+                I still believe in being under leadership. I still believe in
+                obedience. I still believe in having a pastor. I just couldn&apos;t
+                continue to be abused.
+              </p>
+              <p className="text-foreground font-semibold">
+                This book won&apos;t tell you to abandon church. It will help you
+                untangle what happened — and find your way to healthy community.
+              </p>
+            </div>
           </div>
         </div>
       </section>

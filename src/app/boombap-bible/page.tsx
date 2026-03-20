@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ScrollText } from "lucide-react";
+import Image from "next/image";
 import { YouTubeIcon } from "@/components/icons/BrandIcons";
 
 export const metadata: Metadata = {
@@ -22,8 +22,15 @@ export default function BoombapBiblePage() {
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border-2 border-primary/40 mb-6">
-            <ScrollText className="w-7 h-7 text-primary" />
+          <div className="inline-block w-28 h-28 rounded-full overflow-hidden border-2 border-primary/40 mb-6 shadow-lg shadow-primary/10">
+            <Image
+              src="/images/boombap-bible-logo.jpg"
+              alt="Boombap Bible"
+              width={112}
+              height={112}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4">
             BOOMBAP BIBLE
@@ -133,23 +140,34 @@ export default function BoombapBiblePage() {
 
       {/* What Is It */}
       <section className="py-16 bg-secondary">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl font-bold text-foreground mb-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-foreground mb-8 text-center">
             What is Boombap Bible?
           </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Boombap Bible is an ambitious project to set the entire King James
-              Version of the Bible to hip hop music — word for word.
-            </p>
-            <p>
-              No paraphrasing. No &ldquo;inspired by.&rdquo; Every verse sung
-              exactly as written, delivered in the Servant Zero style over
-              classic boom bap production.
-            </p>
-            <p className="text-foreground font-semibold">
-              Scripture that stays with you. Truth that hits different.
-            </p>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="w-full md:w-1/2 rounded-xl overflow-hidden border border-border shadow-lg">
+              <Image
+                src="/images/boombap-bible-funny.jpg"
+                alt="Servant Zero showing biblical elders a boombox — It's the Bible, with a hip hop backdrop"
+                width={600}
+                height={338}
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="md:w-1/2 space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Boombap Bible is an ambitious project to set the entire King James
+                Version of the Bible to hip hop music — word for word.
+              </p>
+              <p>
+                No paraphrasing. No &ldquo;inspired by.&rdquo; Every verse sung
+                exactly as written, delivered in the Servant Zero style over
+                classic boom bap production.
+              </p>
+              <p className="text-foreground font-semibold">
+                Scripture that stays with you. Truth that hits different.
+              </p>
+            </div>
           </div>
         </div>
       </section>
