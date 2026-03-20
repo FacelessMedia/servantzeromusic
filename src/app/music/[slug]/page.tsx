@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ShoppingCart, ExternalLink } from "lucide-react";
+import { ArrowLeft, ShoppingCart, ExternalLink, Play } from "lucide-react";
 import {
   SpotifyIcon,
   YouTubeIcon,
@@ -10,6 +10,7 @@ import {
   AmazonMusicIcon,
   TidalIcon,
 } from "@/components/icons/BrandIcons";
+import { sanitizeLyrics } from "@/lib/lyrics";
 
 // --- SAMPLE SONG DATA (will be replaced by a JSON/CMS data source) ---
 const SAMPLE_SONG = {
@@ -22,6 +23,7 @@ const SAMPLE_SONG = {
   coverImage: "/images/servant-zero-logo.png",
   youtubeVideoId: "s_JkH_4d4VA",
   mp3Price: 1.29,
+  tags: ["church hurt", "forgiveness", "healing"],
   streaming: {
     spotify: { url: "https://open.spotify.com/artist/4Ue2l7C5E72QFCkegCjMwY", available: true },
     appleMusic: { url: "https://music.apple.com/us/artist/servant-zero/1826211389", available: true },
@@ -183,11 +185,35 @@ export default function SongPage() {
                 <span>{song.duration}</span>
               </div>
 
-              {/* Buy MP3 Button */}
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold rounded-md hover:bg-crimson-500 transition-colors mb-8">
-                <ShoppingCart className="w-5 h-5" />
-                Buy MP3 — ${song.mp3Price.toFixed(2)}
-              </button>
+              {/* Play + Buy Buttons */}
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <button className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-bold rounded-md hover:bg-foreground/90 transition-colors">
+                  <Play className="w-5 h-5 fill-current" />
+                  Play in Browser
+                </button>
+                <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold rounded-md hover:bg-crimson-500 transition-colors">
+                  <ShoppingCart className="w-5 h-5" />
+                  Buy MP3 — ${song.mp3Price.toFixed(2)}
+                </button>
+              </div>
+              <p className="text-xs text-muted-foreground mb-6">
+                Your purchase directly supports Servant Zero&apos;s mission to keep creating music for the spiritually wounded.
+              </p>
+
+              {/* Tags */}
+              {song.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {song.tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/music?tag=${encodeURIComponent(tag)}`}
+                      className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full hover:bg-primary/20 hover:text-primary transition-colors"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              )}
 
               {/* Streaming Links */}
               <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">
@@ -257,7 +283,7 @@ export default function SongPage() {
           </h2>
           <div className="bg-card border border-border rounded-xl p-6 sm:p-10">
             <pre className="whitespace-pre-wrap font-sans text-muted-foreground leading-relaxed text-sm sm:text-base">
-              {song.lyrics}
+              {sanitizeLyrics(song.lyrics)}
             </pre>
           </div>
         </div>

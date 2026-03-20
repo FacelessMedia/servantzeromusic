@@ -20,45 +20,45 @@ export default function BookPage() {
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/20 via-background to-background" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            <div className="w-48 h-64 rounded-lg overflow-hidden border border-border flex-shrink-0">
-              <Image
-                src="/images/book-cover.jpeg"
-                alt="Church Hurt, Now What? Book Cover"
-                width={192}
-                height={256}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-            <div className="text-center md:text-left">
-              <p className="text-sm text-primary font-semibold mb-2">A book by Servant Zero</p>
-              <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-4">
-                CHURCH HURT,<br />NOW WHAT?
-              </h1>
-              <p className="text-muted-foreground leading-relaxed mb-2">
-                I didn&apos;t leave church because I stopped believing in God.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                I left because staying was slowly turning me into someone I
-                didn&apos;t recognize.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#get-book"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-bold rounded-md hover:bg-crimson-500 transition-colors"
-                >
-                  Join Launch List
-                </a>
-                <a
-                  href="#about"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-border text-foreground font-semibold rounded-md hover:bg-muted transition-colors"
-                >
-                  Learn More
-                </a>
-              </div>
-            </div>
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block w-40 h-56 rounded-lg overflow-hidden border border-border mb-6 shadow-lg shadow-primary/10">
+            <Image
+              src="/images/book-cover.jpeg"
+              alt="Church Hurt, Now What? Book Cover"
+              width={160}
+              height={224}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <p className="text-sm text-primary font-semibold mb-2">A book by Servant Zero</p>
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4">
+            CHURCH HURT,<br />NOW WHAT?
+          </h1>
+          <p className="text-xl text-muted-foreground font-heading italic mb-4">
+            A Book for the Spiritually Wounded
+          </p>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-2">
+            I didn&apos;t leave church because I stopped believing in God. I
+            left because staying was slowly turning me into someone I
+            didn&apos;t recognize.
+          </p>
+          <span className="inline-block px-4 py-1.5 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-8">
+            Coming 2026
+          </span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#get-book"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-bold rounded-md hover:bg-crimson-500 transition-colors"
+            >
+              Join Launch List
+            </a>
+            <a
+              href="#about"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-border text-foreground font-semibold rounded-md hover:bg-muted transition-colors"
+            >
+              Learn More
+            </a>
           </div>
         </div>
       </section>

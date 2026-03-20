@@ -1,14 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SOCIAL_LINKS } from "@/lib/constants";
-import { Music, Play, Mic, BookOpen, ScrollText, ArrowRight } from "lucide-react";
+import { Music, Play, Mic, BookOpen, ScrollText, ArrowRight, Pen } from "lucide-react";
 import {
   SpotifyIcon,
   YouTubeIcon,
   YouTubeMusicIcon,
   AppleMusicIcon,
   AmazonMusicIcon,
+  TikTokIcon,
 } from "@/components/icons/BrandIcons";
+
+// Placeholder stats — will be replaced by live API data when keys are connected
+const SOCIAL_STATS = [
+  { label: "YouTube Subscribers", value: "7.67K", icon: <YouTubeIcon className="w-5 h-5" />, color: "text-red-500", href: SOCIAL_LINKS.youtube },
+  { label: "Spotify Monthly Listeners", value: "Coming Soon", icon: <SpotifyIcon className="w-5 h-5" />, color: "text-[#1DB954]", href: SOCIAL_LINKS.spotify },
+  { label: "TikTok Followers", value: "Growing", icon: <TikTokIcon className="w-5 h-5" />, color: "text-white", href: SOCIAL_LINKS.tiktok },
+];
 
 function StreamingButton({
   label,
@@ -123,6 +131,29 @@ export default function Home() {
               My Story
             </Link>
           </div>
+
+          {/* Social Stats */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            {SOCIAL_STATS.map((stat) => (
+              <a
+                key={stat.label}
+                href={stat.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 group"
+              >
+                <span className={stat.color}>{stat.icon}</span>
+                <div className="text-left">
+                  <p className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                    {stat.value}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider leading-tight">
+                    {stat.label}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -219,7 +250,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <EcosystemCard
               icon={<Music className="w-6 h-6" />}
               title="Music Catalog"
@@ -245,6 +276,19 @@ export default function Home() {
               title="Boombap Bible"
               description="The KJV Bible sung word-for-word in hip hop style. Scripture you can feel."
               href="/boombap-bible"
+              badge="Coming Soon"
+            />
+            <EcosystemCard
+              icon={<Pen className="w-6 h-6" />}
+              title="Truth & Healing"
+              description="Honest articles on spiritual abuse, church hurt, recovery, and rebuilding faith."
+              href="/truth-and-healing"
+            />
+            <EcosystemCard
+              icon={<BookOpen className="w-6 h-6" />}
+              title="ChristiAnalogies"
+              description="Quick 30-60 minute reads packed with concentrated truth. Everyday analogies, eternal lessons."
+              href="/christianalogies"
               badge="Coming Soon"
             />
           </div>

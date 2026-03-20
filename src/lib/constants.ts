@@ -9,6 +9,8 @@ export const NAV_LINKS = [
   { label: "Sunday Scars", href: "/sunday-scars" },
   { label: "The Book", href: "/book" },
   { label: "Boombap Bible", href: "/boombap-bible" },
+  { label: "Truth & Healing", href: "/truth-and-healing" },
+  { label: "ChristiAnalogies", href: "/christianalogies" },
   { label: "Shop", href: "https://servantzero.shop", external: true },
 ] as const;
 
