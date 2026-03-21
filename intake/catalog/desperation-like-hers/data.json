@@ -1,0 +1,34 @@
+{
+  "title": "Desperation Like Hers",
+  "displayTitle": "Desperation Like Hers",
+  "slug": "desperation-like-hers",
+  "duration": "4:25",
+  "videoReleaseDate": "2026-03-13",
+  "videoStatus": "published",
+  "youtubeVideoId": "",
+  "spotifyUrl": "",
+  "appleMusicUrl": "",
+  "amazonMusicUrl": "",
+  "tidalUrl": "",
+  "youtubeMusicUrl": "",
+  "story": "",
+  "lyrics": "",
+  "tags": [],
+  "assets": {
+    "mp3": false,
+    "wav": false,
+    "thumbnail": false,
+    "lyricsFile": false
+  },
+  "pricing": {
+    "mp3": 0.99,
+    "wav": 1.29
+  },
+  "fileSizes": {
+    "mp3": null,
+    "wav": null
+  },
+  "verified": false,
+  "publishToSite": false,
+  "fileMatchConfidence": null
+}

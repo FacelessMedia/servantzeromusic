@@ -1,0 +1,34 @@
+{
+  "title": "This Ain't Just Music",
+  "displayTitle": "This Ain't Just Music",
+  "slug": "this-aint-just-music",
+  "duration": "2:15",
+  "videoReleaseDate": "2025-11-10",
+  "videoStatus": "published",
+  "youtubeVideoId": "",
+  "spotifyUrl": "",
+  "appleMusicUrl": "",
+  "amazonMusicUrl": "",
+  "tidalUrl": "",
+  "youtubeMusicUrl": "",
+  "story": "",
+  "lyrics": "",
+  "tags": [],
+  "assets": {
+    "mp3": false,
+    "wav": false,
+    "thumbnail": false,
+    "lyricsFile": false
+  },
+  "pricing": {
+    "mp3": 0.99,
+    "wav": 1.29
+  },
+  "fileSizes": {
+    "mp3": null,
+    "wav": null
+  },
+  "verified": false,
+  "publishToSite": false,
+  "fileMatchConfidence": null
+}

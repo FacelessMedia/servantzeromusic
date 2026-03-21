@@ -1,0 +1,34 @@
+{
+  "title": "Don't Forget To Pray",
+  "displayTitle": "Don't Forget To Pray",
+  "slug": "dont-forget-to-pray",
+  "duration": "4:09",
+  "videoReleaseDate": "2025-08-03",
+  "videoStatus": "published",
+  "youtubeVideoId": "",
+  "spotifyUrl": "",
+  "appleMusicUrl": "",
+  "amazonMusicUrl": "",
+  "tidalUrl": "",
+  "youtubeMusicUrl": "",
+  "story": "",
+  "lyrics": "",
+  "tags": [],
+  "assets": {
+    "mp3": false,
+    "wav": false,
+    "thumbnail": false,
+    "lyricsFile": false
+  },
+  "pricing": {
+    "mp3": 0.99,
+    "wav": 1.29
+  },
+  "fileSizes": {
+    "mp3": null,
+    "wav": null
+  },
+  "verified": false,
+  "publishToSite": false,
+  "fileMatchConfidence": null
+}

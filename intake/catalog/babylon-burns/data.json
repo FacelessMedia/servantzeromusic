@@ -1,0 +1,34 @@
+{
+  "title": "Babylon Burns",
+  "displayTitle": "Babylon Burns",
+  "slug": "babylon-burns",
+  "duration": "3:25",
+  "videoReleaseDate": "2025-12-26",
+  "videoStatus": "published",
+  "youtubeVideoId": "",
+  "spotifyUrl": "",
+  "appleMusicUrl": "",
+  "amazonMusicUrl": "",
+  "tidalUrl": "",
+  "youtubeMusicUrl": "",
+  "story": "",
+  "lyrics": "",
+  "tags": [],
+  "assets": {
+    "mp3": false,
+    "wav": false,
+    "thumbnail": false,
+    "lyricsFile": false
+  },
+  "pricing": {
+    "mp3": 0.99,
+    "wav": 1.29
+  },
+  "fileSizes": {
+    "mp3": null,
+    "wav": null
+  },
+  "verified": false,
+  "publishToSite": false,
+  "fileMatchConfidence": null
+}

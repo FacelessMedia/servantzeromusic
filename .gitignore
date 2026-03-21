@@ -37,3 +37,13 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# Intake audio/media files (too large for git)
+intake/songs/**/*.wav
+intake/songs/**/*.mp3
+intake/songs/**/*.flac
+intake/images/**/*.jpg
+intake/images/**/*.jpeg
+intake/images/**/*.png
+intake/images/**/*.webp
+intake/lyrics/**/*

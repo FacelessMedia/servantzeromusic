@@ -1,0 +1,34 @@
+{
+  "title": "I'm Over It",
+  "displayTitle": "I'm Over It",
+  "slug": "im-over-it",
+  "duration": "2:55",
+  "videoReleaseDate": "2026-03-20",
+  "videoStatus": "published",
+  "youtubeVideoId": "",
+  "spotifyUrl": "",
+  "appleMusicUrl": "",
+  "amazonMusicUrl": "",
+  "tidalUrl": "",
+  "youtubeMusicUrl": "",
+  "story": "",
+  "lyrics": "",
+  "tags": [],
+  "assets": {
+    "mp3": false,
+    "wav": false,
+    "thumbnail": false,
+    "lyricsFile": false
+  },
+  "pricing": {
+    "mp3": 0.99,
+    "wav": 1.29
+  },
+  "fileSizes": {
+    "mp3": null,
+    "wav": null
+  },
+  "verified": false,
+  "publishToSite": false,
+  "fileMatchConfidence": null
+}

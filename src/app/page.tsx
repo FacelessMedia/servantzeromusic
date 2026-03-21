@@ -87,26 +87,20 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-crimson-950/30 via-background to-background" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        {/* Full-width background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/servant-zero-hero.webp"
+            alt="Servant Zero"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-background" />
+        </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          {/* Hero Image — Servant Zero standing */}
-          <div className="relative inline-block mb-10">
-            <div className="absolute inset-0 bg-primary/10 blur-3xl scale-110 rounded-2xl" />
-            <div className="relative w-64 h-44 sm:w-80 sm:h-56 md:w-[480px] md:h-[320px] rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10">
-              <Image
-                src="/images/servant-zero-hero.webp"
-                alt="Servant Zero"
-                width={1200}
-                height={800}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-          </div>
-
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground mb-6">
             SERVANT ZERO
           </h1>

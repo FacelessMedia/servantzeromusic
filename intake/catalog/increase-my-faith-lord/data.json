@@ -1,0 +1,34 @@
+{
+  "title": "Increase My Faith Lord",
+  "displayTitle": "Increase My Faith Lord",
+  "slug": "increase-my-faith-lord",
+  "duration": "3:31",
+  "videoReleaseDate": "2026-03-24",
+  "videoStatus": "scheduled",
+  "youtubeVideoId": "",
+  "spotifyUrl": "",
+  "appleMusicUrl": "",
+  "amazonMusicUrl": "",
+  "tidalUrl": "",
+  "youtubeMusicUrl": "",
+  "story": "",
+  "lyrics": "",
+  "tags": [],
+  "assets": {
+    "mp3": false,
+    "wav": false,
+    "thumbnail": false,
+    "lyricsFile": false
+  },
+  "pricing": {
+    "mp3": 0.99,
+    "wav": 1.29
+  },
+  "fileSizes": {
+    "mp3": null,
+    "wav": null
+  },
+  "verified": false,
+  "publishToSite": false,
+  "fileMatchConfidence": null
+}
