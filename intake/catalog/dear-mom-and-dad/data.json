@@ -16,7 +16,7 @@
   "tags": [],
   "assets": {
     "mp3": false,
-    "wav": false,
+    "wav": true,
     "thumbnail": false,
     "lyricsFile": false
   },
@@ -26,9 +26,9 @@
   },
   "fileSizes": {
     "mp3": null,
-    "wav": null
+    "wav": "31.6 MB"
   },
-  "verified": false,
-  "publishToSite": false,
+  "verified": true,
+  "publishToSite": true,
   "fileMatchConfidence": null
 }

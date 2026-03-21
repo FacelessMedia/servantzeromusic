@@ -1,0 +1,7 @@
+# Intake audio/media files (too large for deployment)
+intake/songs/
+intake/images/
+intake/lyrics/
+intake/pending/
+intake/catalog/**/*.wav
+intake/catalog/**/*.mp3

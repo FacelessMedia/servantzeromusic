@@ -47,3 +47,6 @@ intake/images/**/*.jpeg
 intake/images/**/*.png
 intake/images/**/*.webp
 intake/lyrics/**/*
+intake/pending/
+intake/catalog/**/*.wav
+intake/catalog/**/*.mp3
