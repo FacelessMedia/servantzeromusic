@@ -2,8 +2,12 @@ export const SITE_NAME = "Servant Zero";
 export const SITE_TAGLINE = "Music for the Spiritually Wounded";
 export const SITE_URL = "https://servantzeromusic.com";
 
+// The AI Music Masterclass lives on its own standalone domain.
+export const MASTERCLASS_URL = "https://aimusicmasterclass.com";
+
 export const NAV_LINKS = [
   { label: "Music", href: "/music" },
+  { label: "AI Masterclass", href: MASTERCLASS_URL, external: true },
   { label: "Videos", href: "/videos" },
   { label: "My Story", href: "/my-story" },
   { label: "Sunday Scars", href: "/sunday-scars" },
@@ -28,6 +32,20 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const MERCH_URL = "https://servantzero.shop";
+
+// The AI Music Masterclass — flagship paid offering
+export const MASTERCLASS = {
+  name: "The AI Music Masterclass",
+  shortName: "AI Music Masterclass",
+  path: "/ai-music-masterclass",
+  // Founding pre-pay: one-time payment that locks in lifetime access
+  foundingPrice: 499,
+  // Public price at full launch (recurring)
+  monthlyPrice: 79,
+  // Projected alpha release window
+  alphaWindow: "Early–Mid August 2026",
+  promise: "Make real money with AI music — the ethical way. Craft over slop.",
+} as const;
 
 // Placeholder — will be replaced with actual Stripe donate link
 export const DONATE_URL = "#donate";

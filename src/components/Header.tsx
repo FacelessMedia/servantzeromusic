@@ -7,10 +7,10 @@ import { Menu, X, ExternalLink, Heart } from "lucide-react";
 import { NAV_LINKS, DONATE_URL } from "@/lib/constants";
 
 const ROW_1 = NAV_LINKS.filter((l) =>
-  ["Music", "Videos", "My Story", "About"].includes(l.label)
+  ["Music", "AI Masterclass", "Videos", "My Story", "About"].includes(l.label)
 );
 const ROW_2 = NAV_LINKS.filter(
-  (l) => !["Music", "Videos", "My Story", "About"].includes(l.label)
+  (l) => !["Music", "AI Masterclass", "Videos", "My Story", "About"].includes(l.label)
 );
 
 export function Header() {
@@ -36,15 +36,27 @@ export function Header() {
             {/* Row 1 */}
             <div className="flex items-center justify-between">
               <nav className="flex items-center gap-1">
-                {ROW_1.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {ROW_1.map((link) => {
+                  const isExternal = "external" in link && link.external;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      className={
+                        link.label === "AI Masterclass"
+                          ? "px-3 py-1.5 text-sm font-semibold text-primary hover:text-crimson-400 hover:bg-primary/10 rounded-md transition-all"
+                          : "px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md transition-all"
+                      }
+                    >
+                      <span className="flex items-center gap-1">
+                        {link.label}
+                        {isExternal && <ExternalLink className="w-3 h-3" />}
+                      </span>
+                    </Link>
+                  );
+                })}
               </nav>
               <div className="flex items-center gap-3">
                 <a
